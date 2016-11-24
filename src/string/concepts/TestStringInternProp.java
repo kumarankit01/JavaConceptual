@@ -24,39 +24,39 @@ The result of explicitly interning a computed string is the same string as any p
 package string.concepts;
 
 class TestStringInternProp {
-    public static void main(String[] args) {
-    	
-        String hello = "Hello", lo = "lo";
-        System.out.print((hello == "Hello") + " "); //true
-        System.out.print((Other.hello == hello) + " "); // true
-        System.out.print((other.Other.hello == hello) + " "); // true
-        System.out.print((hello == ("Hel"+"lo")) + " "); //true
-        System.out.print((hello == ("Hel"+lo)) + " ");//false
-        System.out.println(hello == ("Hel"+lo).intern()); // true
-        
-        //------------ new creates new String ---------//
-        
-        String s1 = "Rakesh";
-        String s2 = "Rakesh";
-        String s3 = "Rakesh".intern();
-        String s4 = new String("Rakesh");
-        String s5 = new String("Rakesh").intern();
+	public static void main(String[] args) {
 
-        if ( s1 == s2 ){
-            System.out.println("s1 and s2 are same");  // 1.
-        }
+		String hello = "Hello", lo = "lo";
+		System.out.print((hello == "Hello") + " "); //true
+		System.out.print((Other.hello == hello) + " "); // true
+		System.out.print((other.Other.hello == hello) + " "); // true
+		System.out.print((hello == ("Hel"+"lo")) + " "); //true
+		System.out.print((hello == ("Hel"+lo)) + " ");//false
+		System.out.println(hello == ("Hel"+lo).intern()); // true
 
-        if ( s1 == s3 ){
-            System.out.println("s1 and s3 are same" );  // 2.
-        }
+		//------------ new creates new String ---------//
 
-        if ( s1 == s4 ){
-            System.out.println("s1 and s4 are same" );  // 3.
-        }
+		String s1 = "Rakesh";
+		String s2 = "Rakesh";
+		String s3 = "Rakesh".intern();
+		String s4 = new String("Rakesh");
+		String s5 = new String("Rakesh").intern();
 
-        if ( s1 == s5 ){
-            System.out.println("s1 and s5 are same" );  // 4.
-        }
-    }
+		if ( s1 == s2 ){
+			System.out.println("s1 and s2 are same");  // 1.
+		}
+
+		if ( s1 == s3 ){
+			System.out.println("s1 and s3 are same" );  // 2.
+		}
+
+		if ( s1 == s4 ){
+			System.out.println("s1 and s4 are same" );  // 3.
+		}
+
+		if ( s1 == s5 ){
+			System.out.println("s1 and s5 are same" );  // 4.
+		}
+	}
 }
 class Other { static String hello = "Hello"; }
